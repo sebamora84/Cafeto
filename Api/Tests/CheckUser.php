@@ -5,7 +5,7 @@ if(isset($_REQUEST['username']))
 	$username= $_REQUEST['username'];
 }
 else{
-	$username="fernando";
+	$username="superuser";
 }
 $um = new UserManager();
 $user = $um->getUserByName($username);

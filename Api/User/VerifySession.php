@@ -12,25 +12,33 @@ function verifySession(){
 	session_start();
 	
 	$uri=explode("?",substr($_SERVER['REQUEST_URI'], 1))[0];	
-
+	
+	
+	
 	//Session not started
 	if(!isset($_SESSION["username"])){
-		header("Location:/login.html?uri=".$uri);
-		exit();
+		//Every body has access to index.html No need for a session
+		echo $uri;
+		if($uri=="index.html" || $uri==""){
+			return;
+		}
+		else{
+			header("Location:/login.html?uri=".$uri);
+			exit();
+		}
 	}
+	
 	//The resource was already checked
 	if($uri=="notAuthorized.html"||$uri=="underConstruction.html"){
 		return;
 	}
-	//The super user has access to all
-	if($_SESSION["username"]=="superuser"){
-		return;
-	}
+		
 	//Must Reset Pwd
 	if($_SESSION["reset"]=="1" && $uri!="profile.html"){
 		header("Location:/profile.html?uri=".$uri."&m=reset");
 		exit();
 	}
+	
 	//Check the authorization to the resource	
 	$resources = $_SESSION["resources"];
 	foreach ($resources as &$resource){
@@ -50,4 +58,5 @@ function destroySession(){
 	// destroy the session
 	session_destroy();
 }
+
 ?>

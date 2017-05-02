@@ -28,11 +28,11 @@ $(function(){
 							return;
 						}
 						else{
-							$(location).attr('href',"./");	
+							$(location).attr('href',"./login.html");	
 							return;
 						}
 					}
-			});		
+			});
 	});
 });
 

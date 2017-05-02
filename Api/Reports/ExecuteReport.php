@@ -8,6 +8,9 @@ if(isset($_REQUEST['jsonParameters']))
 {
 	$parametersArray = $_REQUEST['jsonParameters'];
 }
+else {
+	$parametersArray= array();
+}
 $rm = new ReportManager();
 echo json_encode($rm->executeReport($reportId, $parametersArray));
 return;

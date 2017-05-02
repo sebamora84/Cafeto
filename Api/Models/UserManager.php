@@ -114,24 +114,15 @@ class UserManager
 		return $id;
 	}
 	function getUserAuthorizations($username){
-		$sql = 'SELECT DISTINCT resource.description as resource, resource.uri, resource.visible, resource.order FROM user 
-				INNER JOIN role_user ON user.id=role_user.user_id 
-				INNER JOIN role ON role_user.role_id=role.id 
-				INNER JOIN resource_role ON role.id=resource_role.role_id 
-				INNER JOIN resource ON resource_role.resource_id=resource.id 
-				WHERE user.username = ? 
+		$sql = 'SELECT DISTINCT resource.description as resource, resource.uri, resource.visible, resource.order FROM 					resource  
+				LEFT OUTER JOIN resource_role ON resource_role.resource_id=resource.id
+                LEFT OUTER JOIN role ON role.id = resource_role.role_id
+                LEFT OUTER JOIN role_user ON role_user.role_id = role.id
+				LEFT OUTER JOIN user ON user.id = role_user.user_id
+                WHERE (user.username = ? OR "superuser" = ?)
 				ORDER BY resource.order';
-		$userAuthorizations = R::getAll($sql, [$username]);
+		$userAuthorizations = R::getAll($sql, [$username,$username]);
 		return $userAuthorizations;
-	}
-	function getAllAuthorizations(){
-		$sql = 'SELECT DISTINCT resource.description as resource, resource.uri, resource.visible, resource.order FROM user
-				INNER JOIN role_user ON user.id=role_user.user_id
-				INNER JOIN role ON role_user.role_id=role.id
-				INNER JOIN resource_role ON role.id=resource_role.role_id
-				INNER JOIN resource ON resource_role.resource_id=resource.id
-				ORDER BY resource.order';
-		return R::getAll($sql);
 	}
 }
 

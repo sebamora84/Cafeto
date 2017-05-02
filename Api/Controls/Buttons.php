@@ -5,13 +5,7 @@ function menuButtons(){
 	}
 	$uri=explode("?",substr($_SERVER['REQUEST_URI'], 1))[0];
 	//Draw the buttons accordingly with the authorization
-	$username = $_SESSION["username"];
-	if($username=="superuser"){
-		$resources= $_SESSION["allResources"];
-	}
-	else{
-		$resources = $_SESSION["resources"];
-	}
+	$resources = $_SESSION["resources"];
 	foreach ($resources as &$resource){
 		if ($resource["visible"]){
 			echo '<button '.getButtonClass($uri, "login.html").' onclick="window.location.href=\'./'.$resource["uri"].'\'">'.$resource["resource"].'</button>';
