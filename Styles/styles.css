@@ -699,6 +699,13 @@ tr:active {
 	display:none;
 }
 
+/*Profile*/
+
+#resetPassword{
+	width: 250px;
+	margin: 70px 200px;
+}
+
 /*LOGIN*/
 
 #userLogin{

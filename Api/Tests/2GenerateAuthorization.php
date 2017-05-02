@@ -43,6 +43,6 @@ $um->createRoleResource($usuario, $profile);
 
 $superuser = $um->getUserByName("superuser");
 $um->createUserRole($superuser->id, $usuario);
-$um->deleteUserRole($superuser,$usuario);
+$um->deleteUserRole($superuser->id,$usuario);
 
 ?>

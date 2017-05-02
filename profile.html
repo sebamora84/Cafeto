@@ -51,37 +51,38 @@ verifySession();
 			</div>	
 			<div class="middlecolumnwrap">
 				<div class="middlecolumn">
-				<div class="passwordEditor">
-						<p><label for="currentPassword">Password Actual</label> 
-						<p><input id="currentPassword" value="" type="password">	
-						<p><label for="newPassword">Password Nuevo</label> 
-						<p><input id="newPassword" value="" type="password">	
-						<p><label for="repeatPassword">Repetir Password</label> 
-						<p><input id="repeatPassword" value="" type="password">		
+					<div id="resetPassword">
+						<div class="passwordEditor">
+							<p><label for="currentPassword">Password Actual</label> 
+							<p><input id="currentPassword" value="" type="password">	
+							<p><label for="newPassword">Password Nuevo</label> 
+							<p><input id="newPassword" value="" type="password">	
+							<p><label for="repeatPassword">Repetir Password</label> 
+							<p><input id="repeatPassword" value="" type="password">		
+							
+						</div>
+						<div class="passwordEditorActions">
+							<button id="savePasswordButton">Guardar</button>
+						</div>
+						<div id="pswd_info">
+							<h4>El password debe tener los siguientes requerimientos:</h4>
+							<ul>
+								<li id="letter" class="invalid">Al menos <strong>una letra</strong></li>
+								<li id="number" class="invalid">Al menos <strong>un numero</strong></li>
+								<li id="length" class="invalid">Al menos <strong>8 caracteres</strong></li>
+							</ul>
+						</div>
 						
-					</div>
-					<div class="passwordEditorActions">
-						<button id="savePasswordButton">Guardar</button>
-					</div>
-				<div id="pswd_info">
-						<h4>El password debe tener los siguientes requerimientos:</h4>
-						<ul>
-							<li id="letter" class="invalid">Al menos <strong>una letra</strong></li>
-							<li id="number" class="invalid">Al menos <strong>un numero</strong></li>
-							<li id="length" class="invalid">Al menos <strong>8 caracteres</strong></li>
-						</ul>
-				</div>
-					
-				<div id="pswd_match">
-						<ul>
-							<li id="match" class="invalid"><strong>El password debe coincidir</strong></li>
-						</ul>
-					</div>	
-				</div>	
-				<div id="pswd_incorrect">
-						<ul>
-							<li id="incorrect" class="invalid"><strong>Password incorrecto</strong></li>
-						</ul>
+						<div id="pswd_match">
+							<ul>
+								<li id="match" class="invalid"><strong>El password debe coincidir</strong></li>
+							</ul>
+						</div>	
+						<div id="pswd_incorrect">
+							<ul>
+								<li id="incorrect" class="invalid"><strong>Password incorrecto</strong></li>
+							</ul>
+						</div>
 					</div>	
 				</div>				
 			</div>			
