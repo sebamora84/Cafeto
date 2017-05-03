@@ -1,0 +1,6 @@
+# Ignore eclipse project #
+##########################
+
+.project
+.settings
+.buildpath
