@@ -1,6 +1,6 @@
 <?php
 $username="cafeto";
-$password="cafeto";
+$password="cafeto248!";
 $dbname="cafeto";
 $dbhost="localhost";
 ?>
