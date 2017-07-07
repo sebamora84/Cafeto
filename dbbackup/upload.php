@@ -2,7 +2,7 @@
 // In PHP versions earlier than 4.1.0, $HTTP_POST_FILES should be used instead
 // of $_FILES.
 
-$uploaddir = '/var/www/html/uploads/';
+$uploaddir = '/var/www/html/dbbackup/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
 
@@ -17,7 +17,6 @@ if ($result) {
 
 echo 'Here is some more debugging info:';
 print_r($_FILES);
-echo $uploadfile;
 print "</pre>";
 
 ?>
